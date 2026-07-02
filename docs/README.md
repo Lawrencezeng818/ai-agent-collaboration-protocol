@@ -29,3 +29,4 @@ For private rules, create `AGENTS.private.md` and keep it out of version control
 > **License:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 > 
 > **Disclaimer:** This is a public template. It intentionally excludes proprietary algorithms, internal architecture, deployment secrets, and patent-sensitive implementation details.
+
