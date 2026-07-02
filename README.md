@@ -1,6 +1,8 @@
 # AI Agent Collaboration Protocol
 
-**An open template for defining how AI coding agents should read, modify, validate, and report changes in a software repository.**
+*Teach AI coding agents when to act, what to avoid, and when to ask.*
+
+An open template for defining how AI coding agents should read, modify, validate, and report changes in a software repository.
 
 ---
 
@@ -8,7 +10,7 @@
 
 In the vibe coding workflow popularized by Karpathy, you describe your intent and AI helps generate or modify the code. It unlocked enormous productivity.
 
-But when AI shifts from "writing a snippet" to "working inside your real project", a new set of problems emerges:
+But when AI shifts from "writing a snippet" to "working inside your real project", new failure modes appear:
 
 - AI can cross architecture boundaries.
 - AI can modify files it should not touch.
@@ -38,18 +40,18 @@ This protocol gives AI coding agents a **project-level collaboration contract** 
 
 **Without a protocol:**
 
-```
+```text
 User: Refactor the auth module.
 AI:  *changes auth logic*
      *edits database migration without asking*
-     *updates production config*
+     *edits deployment or environment config*
      *claims tests passed*
      *provides no rollback plan*
 ```
 
 **With AGENTS.md:**
 
-```
+```text
 Task Level: S3
 Reason: auth/security boundary affected
 Status: Human confirmation required
@@ -78,6 +80,23 @@ S3 is where the protocol adds the most value — it's the formal "pause button" 
 
 ---
 
+### Who Is This For
+
+- Individual developers using Cursor, Claude Code, Copilot, or Codex-style agents
+- Teams that want consistent AI coding rules across repositories
+- Projects with sensitive architecture, security, data, or audit boundaries
+
+---
+
+### What It Is Not
+
+- Not a security sandbox
+- Not a replacement for code review
+- Not a guarantee that every AI tool will obey every instruction
+- Not a substitute for CI, tests, or access control
+
+---
+
 ### Supported AI Coding Agents
 
 Cursor, Claude Code, OpenAI Codex-style agents, GitHub Copilot coding agent, and other autonomous or semi-autonomous development tools that read `AGENTS.md` from the repository root.
@@ -102,11 +121,7 @@ Then customize:
 
 For private rules, create `AGENTS.private.md` and keep it out of public repositories.
 
----
-
-### Documentation
-
-Full documentation site:
+**Full documentation:**
 
 https://lawrencezeng818.github.io/ai-agent-collaboration-protocol/
 
@@ -126,8 +141,8 @@ https://lawrencezeng818.github.io/ai-agent-collaboration-protocol/
 
 ### License
 
-[CC BY-NC 4.0](LICENSE) — free for non-commercial use. Commercial use requires separate written permission.
+[CC BY-NC 4.0](LICENSE) for public documentation and templates. Commercial use requires separate permission.
 
 ---
 
-*This is a public template. It intentionally excludes proprietary algorithms, internal architecture, deployment secrets, private decision memory, and patent-sensitive implementation details.*
+*This is a public template. It intentionally excludes proprietary algorithms, internal architecture, deployment secrets, private governance logic, and patent-sensitive implementation details.*

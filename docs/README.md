@@ -1,5 +1,7 @@
 # AI Agent Collaboration Protocol
 
+*Teach AI coding agents when to act, what to avoid, and when to ask.*
+
 > An open template for defining how AI coding agents should read, modify, validate, and report changes in a software repository.
 
 ---
@@ -8,7 +10,7 @@
 
 In the vibe coding workflow popularized by Karpathy, you describe your intent and AI helps generate or modify the code. It unlocked enormous productivity.
 
-But when AI shifts from "writing a snippet" to "working inside your real project", problems emerge:
+But when AI shifts from "writing a snippet" to "working inside your real project", new failure modes appear:
 
 - AI can cross architecture boundaries.
 - AI can modify files it should not touch.
@@ -40,7 +42,7 @@ Vibe coding optimizes for speed of generation. It does not define the boundaries
 User: Refactor the auth module.
 AI:  *changes auth logic*
      *edits database migration without asking*
-     *updates production config*
+     *edits deployment or environment config*
      *claims tests passed*
      *provides no rollback plan*
 ```
@@ -75,6 +77,17 @@ Then customize: architecture boundaries, test commands, protected files, review 
 
 For private rules, create `AGENTS.private.md` and keep it out of public repositories.
 
-> **License:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for non-commercial use.
+---
+
+### What It Is Not
+
+- Not a security sandbox
+- Not a replacement for code review
+- Not a guarantee that every AI tool will obey every instruction
+- Not a substitute for CI, tests, or access control
+
+---
+
+> **License:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) for public documentation and templates. Commercial use requires separate permission.
 > 
-> **Disclaimer:** This is a public template. It intentionally excludes proprietary algorithms, internal architecture, deployment secrets, private decision memory, and patent-sensitive implementation details.
+> **Disclaimer:** This is a public template. It intentionally excludes proprietary algorithms, internal architecture, deployment secrets, private governance logic, and patent-sensitive implementation details.
